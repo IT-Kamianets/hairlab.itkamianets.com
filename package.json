@@ -1,0 +1,9 @@
+{
+  "name": "hairlab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check js/script.js && node --check js/storage.js && node --check js/media.js && node --check js/data.js && node --check js/api.js && node --check js/i18n.js && node --check js/preferences.js && node --check js/not-found.js && node --check js/locales/uk.js"
+  }
+}

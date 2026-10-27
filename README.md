@@ -1,126 +1,96 @@
 # HairLab
 
-**A foundation for personalized hair inspiration, learning, and transformation tracking.**
+A responsive, local-first hair inspiration and learning app built with vanilla HTML, CSS, and JavaScript. Compatible with GitHub Pages; no build step, runtime dependencies, accounts, or API keys are required. The existing custom-domain `CNAME` is unchanged.
 
-HairLab aims to help people explore hairstyles and hair colors, understand hair care and coloring techniques, and make informed choices about their next look. The product vision combines a user-provided hair profile with AI-assisted recommendations, virtual previews, and feedback from friends.
+## What works
 
-> **Project status: initial static scaffold.** The repository does not yet implement the product features described below. Both HTML pages have empty bodies, and the CSS and JavaScript files are empty.
+- **Languages and themes:** Ukrainian and English across navigation, catalog, forms, lessons, quizzes, privacy notices, and status messages. Switch languages without clearing inputs or selected photos. Light, dark, and system themes persist independently in `hairlab.display.v1`; first visit follows browser language and OS theme.
+- **Homepage:** pastel pink-and-black design, original vector hairstyle illustrations, course previews, and navigation. Initial entry and return to Home start at the hero rather than restoring a mid-page scroll position.
+- **Lookbook:** eight illustrated styles, search, length/texture filters, six color swatches, favorites, and comparison selection.
+- **Hair assistant:** natural/current color, texture, desired length, condition, dye history, goals, preferred styles, and optional local portrait. Transparent rule-based catalog matching uses local likes/dislikes and offers condition/history cautions. This is **not AI** and does not analyze photos.
+- **Look studio:** consented, temporary original-photo preview and a separate style/color illustration. Style and color can be saved separately. **No image transformation or transformed-image download is implemented.**
+- **Collection:** saved looks, three boards, favorite colors, removal, and comparison shortcuts.
+- **Academy:** five courses, ten short lessons, visual learning materials, answer feedback, and persistent completion progress. Only correct answers complete lessons.
+- **My journey:** dates, notes, and optional before/after photos stored in IndexedDB after explicit consent. Individual entries or the entire journal can be deleted.
+- **Comparison:** up to three catalog looks side by side; consented share links include only catalog IDs. Anyone can open these without signing in. **No shared voting, vote counts, expiry, or revocation is implemented.**
+- **Privacy controls:** separate resets for preferences/progress and journal photos. Upload validation restricts images to JPEG/PNG/WebP, at most 5 MB each, and verifies browser decoding.
 
-## Current implementation
-
-The repository currently provides:
-
-- An `index.html` entry point with HTML5 markup, an English language declaration, UTF-8 encoding, and a responsive viewport meta tag.
-- A `404.html` scaffold with the same basic markup. It does not yet display a not-found message.
-- Placeholder files for styles, theme variables, and JavaScript. These files are not yet linked from either HTML page.
-- A `CNAME` file containing `hairlab.itkamianets.com` for custom-domain configuration. Its presence alone does not confirm a live deployment or working DNS configuration.
-- Development and product guidelines in [AGENTS.md](AGENTS.md).
-
-There is no visible application interface, navigation, photo handling, AI integration, data persistence, authentication, or backend. Both pages currently use the placeholder title `Document`.
-
-## Planned capabilities
-
-The following capabilities are product goals, **not available features**:
-
-| Capability | Intended experience |
-| --- | --- |
-| Hair profile | Add a photo and self-reported natural/current color, length, texture, condition, dye history, and goals. |
-| Personalized recommendations | Explore cuts and colors informed by the profile, preferences, and practical constraints. |
-| Preference learning | Like, dislike, save, or dismiss suggestions to help improve future recommendations. |
-| Virtual try-on | Preview selected styles and colors on a photo, with generated simulations clearly labeled. |
-| Learning modules | Learn about color theory, haircutting, coloring, hair health, and aftercare through short lessons and exercises. |
-| Saved looks | Collect favorite looks and selected variations. |
-| Transformation timeline | Keep photos and notes about changes, with control over retention and deletion. |
-| Comparison and voting | Compare looks and invite friends to vote through a shared link without registering. |
-
-Recommendations and simulated previews are intended to support exploration, not guarantee results or replace professional advice.
-
-## Technology
-
-The project uses a simple static-site structure:
-
-| Technology | Current role |
-| --- | --- |
-| HTML5 | Basic document scaffolds for the entry and not-found pages. |
-| CSS | Empty files reserved for styling and shared design tokens. |
-| Vanilla JavaScript | An empty file reserved for browser interactions. |
-
-No framework, package manifest, external dependency, bundler, API client, database, automated test suite, or lint configuration is included. No installation or build step is required to view the current pages.
-
-## Repository structure
-
-```text
-Hairlab/
-├── .gitignore          # Empty placeholder for Git ignore rules
-├── AGENTS.md           # Repository instructions and product guidelines
-├── README.md           # Project overview and local setup
-├── CNAME               # Custom domain: hairlab.itkamianets.com
-├── index.html          # Main page scaffold; empty body
-├── 404.html            # Not-found page scaffold; empty body
-├── css/
-│   ├── style.css       # Empty stylesheet placeholder
-│   └── variable.css    # Empty theme-variable placeholder
-└── js/
-    └── script.js       # Empty JavaScript placeholder
-```
+All displayed looks are illustrations, not generated transformations or guaranteed real-world results.
 
 ## Run locally
 
-### Open the HTML directly
-
-Open `index.html` in a modern web browser. This requires no additional software or configuration.
-
-**Expected result:** a blank page with the browser tab title `HairLab.itkamianets`. This reflects the current scaffold, not a setup failure.
-
-### Use a local HTTP server
-
-If Python 3 is installed, run this command from the repository root:
+From the repository root:
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Then open:
+Open [HairLab](http://127.0.0.1:8000/). Stop with Ctrl+C. Use HTTP rather than opening `index.html` as a file: browsers restrict ES modules under `file://`.
 
-- [Main page](http://127.0.0.1:8000/)
-- [Not-found page scaffold](http://127.0.0.1:8000/404.html)
+GitHub Pages can serve the repository root directly. Hash routes such as `/#learn/color/0` work without rewrite rules. `404.html` uses root-relative links for the existing custom-domain deployment. The Python server does not automatically use this custom error page; open `/404.html` directly to inspect it. No deployment has been performed as part of this implementation.
 
-Stop the server with `Ctrl+C`. Python is only an optional local serving tool; it is not an application dependency.
+## Verification
 
-The Python server does not automatically serve the custom `404.html` for missing URLs. Custom error-page routing depends on the hosting platform.
+Node 18+ is sufficient for dependency-free checks (no `npm install` needed):
 
-## Design direction
+```sh
+npm test
+npm run check
+```
 
-The required design direction is a soft pastel aesthetic with **near-black and pink as the primary brand colors**, supported by blush and off-white surfaces. This visual system is specified in `AGENTS.md` but has not yet been implemented.
+Automated tests cover catalog consistency, profile ranking and treatment cautions, stored-state validation, corrupted/blocked storage recovery, journal schema validation, upload input rejection, and unavailable backend behavior. Syntax checks cover all app modules.
 
-Future interfaces should use centralized CSS custom properties, generous spacing, soft corners, readable typography, and restrained pink accents. Responsive layouts, semantic controls, visible keyboard focus, and WCAG AA contrast are part of the development requirements.
+Manual browser checklist:
 
-## Development roadmap
+1. Check homepage and navigation at desktop, tablet, and 390px mobile widths. Tab through links/forms and verify the skip link and visible focus. Enable reduced motion in your OS to check animation preferences.
+2. Search/filter looks, save/remove a favorite and color, assign a board, reload, and check persistence. A fourth comparison choice must be rejected.
+3. Submit different assistant profiles, including previous bleaching or damaged hair. Like/dislike a result and rerun the guide. Photos must never affect recommendations.
+4. Without consent, photo inputs must be disabled. Test valid photos, corrupt images, unsupported types, oversized files, removal, and consent withdrawal. The studio must keep the portrait unchanged.
+5. Answer a quiz incorrectly, then correctly; reload to verify completion. Open another lesson and course.
+6. Save a journal entry with/without photos after consenting; reload, inspect before/after images, and delete it. Notes containing HTML must display as text. Try saving without a title or consent.
+7. Choose two or three looks, consent to sharing, open the generated link in another tab, and verify only catalog IDs are in the URL. Invalid IDs must be ignored. Voting must be clearly unavailable.
+8. Test an invalid route and `/404.html`. Check developer console errors. Block storage to verify useful recovery messages; never use real personal photos for testing.
 
-The following is a proposed incremental path, without committed release dates:
+## Architecture and files
 
-1. **Build the interface foundation.** Add the shared design tokens, responsive page layout, navigation, accessible controls, and meaningful not-found content.
-2. **Introduce a local profile prototype.** Add validated photo selection and essential hair-profile fields, with clear consent and deletion controls. Define versioned data structures before persisting user content.
-3. **Prototype exploration and learning.** Add clearly labeled sample recommendations, preference controls, saved looks, and learning modules. Distinguish local-only behavior from connected services.
-4. **Integrate AI through a trusted service.** Add a backend or serverless boundary for private credentials, validate model responses, and handle loading, errors, timeouts, and rate limits. Obtain explicit consent before sending photos to external providers.
-5. **Add transformation tracking and sharing.** Implement photo retention controls, comparisons, and guest voting with appropriate storage, access rules, link expiry or revocation, and server-side vote validation.
+| File | Responsibility |
+| --- | --- |
+| `index.html` | Semantic app shell, navigation, module entry point |
+| `404.html` | Styled not-found page |
+| `css/variable.css` | Central brand, contrast, and surface tokens |
+| `css/style.css` | Responsive layout, components, focus, reduced motion |
+| `assets/mark.svg` | Local brand icon |
+| `js/preferences.js` | Early theme/language preferences without a light-theme flash |
+| `js/i18n.js`, `js/locales/uk.js` | Local phrase catalog, dynamic labels, and in-place translation |
+| `js/not-found.js` | Language/theme support on the 404 page |
+| `js/script.js` | Hash routing, page views, event handlers, consent flows |
+| `js/data.js` | Catalog, colors, course content, deterministic matching |
+| `js/media.js` | Image validation and original vector style illustrations |
+| `js/storage.js` | Versioned local state validation and IndexedDB journal |
+| `js/api.js` | Explicit unavailable service boundaries, no network requests |
+| `tests/core.test.js` | Dependency-free logic/validation tests |
+| `docs/integrations.md` | Data contracts and proposed backend plan |
+| `package.json` | Optional test/check commands; no dependencies |
 
-Trustworthy voting across devices requires a backend or hosted storage; static files alone cannot provide shared vote aggregation. No AI provider, storage service, or backend is currently configured.
+## Privacy and storage limits
 
-## Privacy and responsible guidance
+- `localStorage['hairlab.v1']` retains catalog IDs, board assignments, feedback, and lesson completion. Unknown IDs/versions are discarded when read.
+- IndexedDB `hairlab-journal`, version 1, stores consented entries and image blobs in `entries`. Records are validated on write and read.
+- Profiles and temporary portrait previews are not persisted. Object URLs are revoked when removed or when navigating away.
+- Neither storage mechanism is encrypted or cloud-synchronized. Shared browser profiles can expose saved data; clearing site data can remove it permanently. There is no backup/export feature yet.
+- No analytics, external imagery/fonts, remote AI calls, or photo uploads occur. Only local app assets load. Browser quota/access failures produce errors or a session-only preference fallback.
+- Catalog comparison URLs are public choices, not private or revocable links. They never include photos, notes, or profiles.
 
-Future photo and AI features must follow the requirements in `AGENTS.md`:
+## Next development steps
 
-- Treat face photos and hair history as sensitive content; obtain explicit consent for uploads, remote processing, retention, and public sharing.
-- Prefer client-side processing where practical and provide deletion controls when storage is introduced. Browser `localStorage` is not secure private storage.
-- Keep secret API keys out of public HTML, JavaScript, and client-side configuration. Private credentials belong behind a trusted backend boundary.
-- Clearly label generated previews and account for self-reported treatments and damage when recommending changes. Do not infer hair history solely from a photograph or claim to diagnose scalp conditions.
-- Avoid universal chemical mixing or processing instructions. Refer to manufacturer guidance, appropriate patch/strand testing, and professional help for complex transformations.
+1. Obtain editorial review from a qualified hair professional and expand the catalog with licensed reference imagery.
+2. Add a trusted backend for authenticated private storage and a secure API proxy; implement the consent, validation, error, and deletion contracts in [the integration plan](docs/integrations.md).
+3. Connect a supported image-transformation service, label generated simulations, and enable compare/download only after valid returned images exist.
+4. Implement shared comparisons and anonymous guest voting with server-side validation, rate limits, expiry/revocation, and abuse monitoring.
+5. Add automated browser coverage, more assistive-technology testing, encrypted storage/backup options, and cross-device sync before representing the app as production-ready.
 
-These are implementation requirements, not claims that such features or safeguards are already built.
+## Localization and display checks
 
-## Working on the project
+Switch English ↔ Українська on the homepage, assistant, lesson, and journal pages; verify that inputs, selected photos, and user-written notes do not change. Search the catalog in either language. Reload with each theme and verify saved settings, then select System to follow OS theme changes. At 390px and desktop widths, enter the homepage after scrolling down and verify the hero starts at the top.
 
-Read [AGENTS.md](AGENTS.md) before making changes. Prefer targeted, maintainable HTML, CSS, and JavaScript updates, and introduce dependencies only when justified. Preserve `CNAME` unless a deployment change is explicitly requested.
-
-There are currently no automated test, lint, or build commands. For future interface changes, manually verify page loading and navigation, desktop and narrow mobile layouts, keyboard access, form validation, relevant error states, and browser console output. Update this README as functionality and setup requirements change.
+English source phrases are stable translation keys in `js/locales/uk.js`. `js/i18n.js` translates text/accessible attributes in place and retains original text for language switching; it does not re-render forms or change data IDs. User-generated journal content is explicitly marked `translate="no"`; input values and filenames are never translated. New catalog/course phrases need dictionary entries (covered by tests). New languages need a catalog, registration in the translator/bootstrap, and a language option. Browser-native file pickers and validation messages follow the browser/OS language. Display preferences are separate from collection/progress reset.

@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HairLab.itkamianets</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFF9FC">
+  <meta name="description" content="Your personal space for hair inspiration, thoughtful learning, and your next chapter. Explore looks and build your HairLab collection.">
+  <title>HairLab</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <script src="js/preferences.js"></script>
+  <link rel="stylesheet" href="css/variable.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/script.js"></script>
 </head>
 <body>
-    
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="HairLab home"><span class="brand-mark">h.</span>hairlab<span class="brand-dot">✳</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#explore">Explore looks</a><a href="#assistant">Hair assistant</a><a href="#learn">The academy</a><a href="#timeline">My journey</a>
+    </nav>
+    <a class="collection-link" href="#collection">♡ <span>My collection</span> <span id="saved-count" class="count">0</span></a>
+    <div class="display-controls">
+      <label><span>Language</span><select id="language-select" aria-label="Language"><option value="uk" translate="no">Українська</option><option value="en" translate="no">English</option></select></label>
+      <label><span>Appearance</span><select id="theme-select" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer"><a class="brand" href="#home">hairlab<span class="brand-dot">✳</span></a><p>A little inspiration. A look that feels like you.</p><span>Made for your next chapter.</span><a href="#privacy">Privacy & local data</a></footer>
+  <div id="status" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="notice">Please enable JavaScript to use HairLab’s local collection, lessons, and tools.</p></noscript>
 </body>
 </html>
