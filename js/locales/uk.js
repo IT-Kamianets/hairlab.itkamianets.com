@@ -18,8 +18,6 @@ export default {
   "YOUR HAIR. YOUR POSSIBILITIES.": "ВАШЕ ВОЛОССЯ. ВАШІ МОЖЛИВОСТІ.",
   "A new look.": "Новий образ.",
   "A little more": "Трохи більше",
-  "Leave room for a little more": "Залиште місце для",
-  "You.": "Вас.",
   "you.": "вас.",
   "Find your next hair chapter. Explore styles you love, understand your hair, and make room for a little reinvention.": "Відкрийте нову главу своєї історії. Знаходьте улюблені зачіски, пізнавайте своє волосся та наважуйтеся на зміни.",
   "Try a new look": "Спробувати новий образ",

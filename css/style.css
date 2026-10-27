@@ -1,4 +1,3 @@
-@import url('./variable.css');
 
 * {
   box-sizing:border-box}
@@ -8,7 +7,7 @@ body {
   margin:0;
   background:var(--color-background);
   color:var(--color-text);
-  font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  font:var(--font-size-min)/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 button,input,select,textarea {
   font:inherit}
 a {
@@ -61,28 +60,20 @@ p {
   font-weight:650;
   letter-spacing:-1.8px;
   white-space:nowrap}
-.brand-mark {
-  font-family:Georgia,serif;
-  font-weight:400;
-  display:grid;
-  place-items:center;
-  width:38px;
-  height:38px;
-  background:var(--color-pink-soft);
-  border-radius:12px;
-  margin-right:10px;
-  font-size:32px}
-.brand-dot {
-  color:var(--color-focus);
-  font-size:25px;
-  margin-left:3px}
+.brand-logo {
+  display: block;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+}
 .site-header nav {
   display:flex;
   gap:28px;
   flex:1;
   justify-content:center}
 .site-header nav a {
-  font-size:13px;
+  font-size:var(--font-size-min);
   font-weight:550;
   padding:10px 0;
   white-space:nowrap}
@@ -90,7 +81,7 @@ p {
   color:var(--color-focus);
   box-shadow:0 2px var(--color-focus)}
 .collection-link {
-  font-size:13px;
+  font-size:var(--font-size-min);
   display:flex;
   gap:8px;
   align-items:center}
@@ -119,7 +110,7 @@ main {
   gap:70px;
   padding:64px 0 55px}
 .eyebrow {
-  font-size:11px;
+  font-size:var(--font-size-min);
   font-weight:700;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -132,7 +123,7 @@ main {
   font-weight:400}
 .hero p {
   max-width:435px;
-  font-size:16px;
+  font-size:var(--font-size-min);
   line-height:1.85}
 .actions {
   display:flex;
@@ -150,19 +141,19 @@ main {
   padding:13px 22px;
   border-radius:10px;
   font-weight:650;
-  font-size:13px;
+  font-size:var(--font-size-min);
   min-height:46px}
 .button.secondary {
   background:var(--color-surface);
   border-color:var(--color-control)}
 .text-link {
   font-weight:650;
-  font-size:13px;
+  font-size:var(--font-size-min);
   padding:12px 0}
 .hero .actions {
   margin:28px 0 22px}
 .micro {
-  font-size:12px;
+  font-size:var(--font-size-min);
   color:var(--color-text-muted)}
 .hero-art {
   position:relative;
@@ -187,7 +178,7 @@ main {
   position:absolute;
   left:22px;
   top:32px;
-  font-size:10px;
+  font-size:var(--font-size-min);
   letter-spacing:2px}
 .floating-note {
   position:absolute;
@@ -198,10 +189,10 @@ main {
   padding:15px 20px;
   border-radius:14px;
   box-shadow:var(--shadow);
-  font-size:13px}
+  font-size:var(--font-size-min)}
 .floating-note strong {
   display:block;
-  font-size:15px}
+  font-size:var(--font-size-min)}
 .art-swatch {
   position:absolute;
   left:-20px;
@@ -223,7 +214,7 @@ main {
   border-block:1px solid var(--color-border);
   padding:22px 0;
   gap:20px;
-  font-size:12px;
+  font-size:var(--font-size-min);
   font-weight:550}
 .benefits span {
   display:flex;
@@ -288,10 +279,10 @@ main {
   font-size:20px;
   letter-spacing:-.04em}
 .look-body p {
-  font-size:12px;
+  font-size:var(--font-size-min);
   margin-bottom:12px}
 .tag {
-  font-size:9px;
+  font-size:var(--font-size-min);
   letter-spacing:1.4px;
   color:var(--color-text-muted);
   display:block;
@@ -302,7 +293,7 @@ main {
   border:1px solid var(--color-border);
   border-radius:20px;
   padding:3px 9px;
-  font-size:11px;
+  font-size:var(--font-size-min);
   color:var(--color-text-muted)}
 .card-actions {
   margin-top:15px;
@@ -317,7 +308,7 @@ main {
   border-radius:8px;
   min-height:38px;
   padding:7px 11px;
-  font-size:12px}
+  font-size:var(--font-size-min)}
 .small-button[aria-pressed=true] {
   background:var(--color-pink-soft);
   border-color:var(--color-focus)}
@@ -358,7 +349,7 @@ main {
   place-items:center;
   margin-bottom:25px}
 .course-card p {
-  font-size:13px}
+  font-size:var(--font-size-min)}
 .course-card h3 {
   font-size:22px}
 .course-card .text-link {
@@ -371,7 +362,7 @@ main {
   align-items:center;
   max-width:1440px;
   margin:auto;
-  font-size:11px;
+  font-size:var(--font-size-min);
   color:var(--color-text-muted)}
 .site-footer p {
   flex:1;
@@ -405,7 +396,7 @@ main {
   display:flex;
   flex-direction:column;
   gap:7px;
-  font-size:13px;
+  font-size:var(--font-size-min);
   font-weight:600}
 .field small {
   font-weight:400;
@@ -428,20 +419,20 @@ input[type=checkbox],input[type=radio] {
   height:18px;
   flex-shrink:0}
 input[type=file] {
-  font-size:12px}
+  font-size:var(--font-size-min)}
 fieldset {
   border:1px solid var(--color-border);
   border-radius:12px;
   padding:15px;
   margin:20px 0}
 legend {
-  font-size:13px;
+  font-size:var(--font-size-min);
   font-weight:650}
 .check {
   display:flex;
   gap:10px;
   align-items:start;
-  font-size:13px;
+  font-size:var(--font-size-min);
   font-weight:400;
   line-height:1.6;
   margin:10px 0}
@@ -463,7 +454,7 @@ legend {
   gap:24px;
   align-items:start}
 .notice {
-  font-size:13px;
+  font-size:var(--font-size-min);
   background:var(--color-pink-pale);
   border:1px solid var(--color-border);
   border-radius:12px;
@@ -496,7 +487,7 @@ legend {
   display:flex;
   gap:10px;
   align-items:center;
-  font-size:12px;
+  font-size:var(--font-size-min);
   min-height:48px}
 .swatch[aria-pressed=true] {
   background:var(--color-pink-pale);
@@ -524,10 +515,10 @@ legend {
 .upload-preview p {
   margin:20px;
   text-align:center;
-  font-size:13px}
+  font-size:var(--font-size-min)}
 .error {
   color:var(--color-error);
-  font-size:13px;
+  font-size:var(--font-size-min);
   min-height:20px}
 .success {
   color:var(--color-success)}
@@ -541,7 +532,7 @@ legend {
   color:white;
   border-radius:12px;
   max-width:90vw;
-  font-size:13px;
+  font-size:var(--font-size-min);
   z-index:10;
   box-shadow:var(--shadow)}
 .toast:empty {
@@ -557,7 +548,7 @@ legend {
 .details div {
   padding:10px 0;
   border-bottom:1px solid var(--color-border);
-  font-size:13px;
+  font-size:var(--font-size-min);
   display:flex;
   justify-content:space-between;
   gap:12px}
@@ -574,13 +565,13 @@ legend {
   padding:13px;
   border-radius:10px;
   margin-bottom:8px;
-  font-size:13px}
+  font-size:var(--font-size-min)}
 .lesson-nav a[aria-current=step] {
   background:var(--color-pink-soft)}
 .lesson-content h2 {
   font-size:32px}
 .lesson-content>p {
-  font-size:16px;
+  font-size:var(--font-size-min);
   line-height:1.9}
 .lesson-visual {
   display:flex;
@@ -599,7 +590,7 @@ legend {
 .lesson-visual figure {
   margin:0;
   text-align:center;
-  font-size:11px}
+  font-size:var(--font-size-min)}
 .lesson-visual .swatch-dot {
   width:44px;
   height:44px}
@@ -618,7 +609,7 @@ progress {
 .journal-card {
   margin-bottom:20px}
 .journal-card time {
-  font-size:12px;
+  font-size:var(--font-size-min);
   color:var(--color-focus)}
 .journal-card p {
   white-space:pre-wrap;
@@ -637,18 +628,14 @@ progress {
   background:var(--color-pink-pale);
   border-radius:12px}
 .photo-pair figcaption {
-  font-size:11px;
+  font-size:var(--font-size-min);
   margin-top:6px}
 .privacy-copy {
   max-width:740px}
 .privacy-copy h2 {
   font-size:26px;
   margin-top:30px}
-.inline-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px}
+
 .flow-steps {
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -662,8 +649,8 @@ progress {
   font-size:20px;
   margin-top:14px}
 .flow-steps p {
-  font-size:13px}
-.hidden,[hidden] {
+  font-size:var(--font-size-min)}
+[hidden] {
   display:none!important}
 
 @media(min-width:1450px) {
@@ -706,7 +693,7 @@ progress {
   gap:6px;
   overflow-x:auto}
 .site-header nav a {
-  font-size:12px}
+  font-size:var(--font-size-min)}
 .collection-link span:not(.count) {
   display:inline}
 .hero {
@@ -770,7 +757,7 @@ progress {
 .comparison-grid .look-body {
   padding-bottom:0}
 .details div {
-  font-size:12px;
+  font-size:var(--font-size-min);
   padding:5px 0}
 .lesson-nav {
   display:flex;
@@ -803,7 +790,7 @@ progress {
 .look-body h3 {
   font-size:18px}
 .look-body p {
-  font-size:11px}
+  font-size:var(--font-size-min)}
 .course-grid,.form-grid,.flow-steps {
   grid-template-columns:1fr}
 .section-heading h2 {
@@ -811,7 +798,7 @@ progress {
 .section-heading {
   gap:12px}
 .section-heading .text-link {
-  font-size:11px}
+  font-size:var(--font-size-min)}
 .comparison-grid .look-card {
   display:block}
 .comparison-grid .look-image {
@@ -823,7 +810,7 @@ progress {
 .site-footer p {
   flex-basis:100%}
 .check {
-  font-size:12px}
+  font-size:var(--font-size-min)}
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -846,7 +833,7 @@ button:hover:not(:disabled),.button:hover {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  font-size: 10px;
+  font-size:var(--font-size-min);
   color: var(--color-text-muted);
 }
 .display-controls select {
@@ -854,7 +841,7 @@ button:hover:not(:disabled),.button:hover {
   width: auto;
   max-width: 132px;
   padding: 6px 8px;
-  font-size: 12px;
+  font-size:var(--font-size-min);
 }
 .site-header {
   gap: 22px;
@@ -876,7 +863,8 @@ button:hover:not(:disabled),.button:hover {
   background: var(--color-image-neutral);
 }
 .hero {
-  min-height: min(660px, calc(100svh - 100px));
+  min-height: calc(100vh - var(--header-height, 100px) + 1px);
+  min-height: calc(100dvh - var(--header-height, 100px) + 1px);
 }
 .hero h1 {
   font-size: clamp(40px, 4.8vw, 68px);
@@ -888,11 +876,11 @@ button:hover:not(:disabled),.button:hover {
 @media (max-width: 760px) {
   .display-controls { order: 2; gap: 8px; }
   .display-controls label > span { display: none; }
-  .display-controls select { max-width: 110px; font-size: 11px; }
+  .display-controls select { max-width: 110px; font-size:var(--font-size-min); }
   .site-header { gap: 10px; }
   .site-header .collection-link { margin-left: 0; }
   .site-header nav { justify-content: space-between; gap: 8px; }
-  .hero { min-height: auto; padding-top: 28px; }
+  .hero { padding-top: 28px; }
   .hero h1 { font-size: clamp(37px, 9vw, 54px); }
   .hero .actions { margin: 20px 0 16px; }
 }
@@ -900,9 +888,65 @@ button:hover:not(:disabled),.button:hover {
   .collection-link span:not(.count) { display: none; }
   .display-controls { margin-left: auto; }
   .site-header .brand { font-size: 25px; }
-  .brand-mark { display: none; }
-  .site-header nav a { font-size: 11px; }
+  .brand-logo { width: 40px; height: 40px; margin-right: 8px; }
+  .site-header nav a { font-size:var(--font-size-min); }
   .display-controls select { max-width: 100px; }
   .hero-art { min-height: 280px; }
   .hero-art .portrait { height: 280px; }
+}
+
+/* Only the header and hero occupy the opening screen. Full-bleed color does
+   not change the shared content width or clip content on short screens. */
+.home-view .site-header, .hero {
+  --color-text-muted: var(--color-hero-muted);
+  --color-focus: var(--color-hero-accent);
+  background: var(--color-hero);
+  box-shadow: 0 0 0 100vmax var(--color-hero);
+  clip-path: inset(0 -100vmax);
+}
+.hero .button:not(.secondary) {
+  background: var(--color-hero-button);
+  color: var(--color-hero-button-text);
+}
+
+/* Reading-size text, including native form controls and secondary labels. */
+small, input::file-selector-button, option {
+  font-size: inherit;
+}
+input::file-selector-button {
+  font-family: inherit;
+}
+.eyebrow, .tag, .art-label {
+  letter-spacing: .08em;
+  overflow-wrap: anywhere;
+}
+.art-label { right: 22px; }
+.section-heading { flex-wrap: wrap; }
+.section-heading .text-link { white-space: normal; }
+.site-header nav { flex-wrap: wrap; }
+.display-controls select {
+  max-width: none;
+  min-height: 44px;
+}
+.floating-note { max-width: calc(100% - 20px); }
+.details div { flex-wrap: wrap; }
+.field small { line-height: 1.5; }
+@media (max-width: 760px) {
+  .site-header nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+  .site-header nav a { white-space: normal; }
+  .benefits { flex-direction: column; }
+  .floating-note { right: 0; padding: 12px; }
+  .display-controls { flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .look-grid, .look-grid.home-grid { grid-template-columns: 1fr; }
+  .look-image { height: 260px; }
+  .section-heading { align-items: start; }
+  .display-controls { width: 100%; }
+  .display-controls label { flex: 1; min-width: 0; }
+  .display-controls select { width: 100%; }
 }

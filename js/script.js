@@ -5,6 +5,12 @@ import { portrait, validatePhoto } from './media.js';
 import { capabilities } from './api.js';
 const main = document.querySelector('main');
 const { localize, t } = initLocalization();
+// Header height changes with viewport width and language; avoid hard-coded
+// offsets so the following section always starts below the opening viewport.
+const header = document.querySelector('.site-header');
+const syncHeaderHeight = () => document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+new ResizeObserver(syncHeaderHeight).observe(header);
+syncHeaderHeight();
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 const initial = readState();
 let state = initial.state;
@@ -203,6 +209,7 @@ function route() {
   routeVersion++; releaseUrls();
   const [path,query] = (location.hash.slice(1)||'home').split('?');
   const parts=path.split('/');
+  document.body.classList.toggle('home-view', parts[0] === 'home');
   if(parts[0]==='compare' && query) {
     const supplied=new URLSearchParams(query).get('looks');
     if(supplied !== null) { const ids=[...new Set(supplied.split(',').filter(id=>lookFor(id)))].slice(0,3); state.compare=ids; persist(); if(!ids.length) notify('This link contains no valid catalog looks. Choose new looks below.'); }
@@ -211,6 +218,7 @@ function route() {
   document.querySelectorAll('.site-header a').forEach(a=>{ if(a.hash===`#${parts[0]}`) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   (Object.hasOwn(routes, parts[0]) ? routes[parts[0]] : notFound)();
   localize();
+  syncHeaderHeight();
   updateTitle();
   // Do not focus the whole main region on initial entry: some browsers scroll it into view.
   if (routeVersion > 1) main.focus({preventScroll:true});

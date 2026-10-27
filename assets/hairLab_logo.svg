@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="hairLab_logo.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="33.615385"
+       y="12.461538"
+       width="26.461539"
+       height="30.230769"
+       id="rect3" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="13"
+     inkscape:cx="42"
+     inkscape:cy="32.153846"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <rect
+     width="64"
+     height="64"
+     rx="20"
+     fill="#F8DCE8"
+     id="rect1" />
+  <g
+     id="g1"
+     transform="matrix(0.86965298,0,0,1.0821065,2.8506478,-0.36183738)">
+    <g
+       id="g4"
+       transform="translate(0.69230769,-0.07692308)">
+      <text
+         x="2.153846"
+         y="44.769234"
+         font-size="46px"
+         font-family="Georgia"
+         fill="#19171b"
+         id="text1"
+         style="font-size:42.6667px;font-family:Georgia;fill:#19171b"><tspan
+           id="tspan2"
+           x="2.153846"
+           y="44.769234"
+           sodipodi:role="line"
+           style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.6667px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">hL.</tspan></text>
+      <text
+         xml:space="preserve"
+         id="text3"
+         style="font-size:26.6667px;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect3);fill:#66203f;fill-opacity:1"
+         transform="matrix(0,1.6732833,-1.6538443,0,88.038233,-41.192338)"><tspan
+           x="33.615234"
+           y="36.724306"
+           id="tspan3">*</tspan></text>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:26.6667px;writing-mode:lr-tb;direction:ltr;fill:#66203f;fill-opacity:1"
+     x="31.769232"
+     y="48.153847"
+     id="text4"><tspan
+       sodipodi:role="line"
+       id="tspan4"
+       x="31.769232"
+       y="48.153847" /></text>
+</svg>
